@@ -1,0 +1,84 @@
+﻿@model FiverWork.Models.Gig
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Gig</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="GigId" />
+            <div class="form-group">
+                <label asp-for="GigTitle" class="control-label"></label>
+                <input asp-for="GigTitle" class="form-control" />
+                <span asp-validation-for="GigTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SellerName" class="control-label"></label>
+                <input asp-for="SellerName" class="form-control" />
+                <span asp-validation-for="SellerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SellerImage" class="control-label"></label>
+                <input asp-for="SellerImage" class="form-control" />
+                <span asp-validation-for="SellerImage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GigImage1" class="control-label"></label>
+                <input asp-for="GigImage1" class="form-control" />
+                <span asp-validation-for="GigImage1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GigImage2" class="control-label"></label>
+                <input asp-for="GigImage2" class="form-control" />
+                <span asp-validation-for="GigImage2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GigImage3" class="control-label"></label>
+                <input asp-for="GigImage3" class="form-control" />
+                <span asp-validation-for="GigImage3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GigImage4" class="control-label"></label>
+                <input asp-for="GigImage4" class="form-control" />
+                <span asp-validation-for="GigImage4" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GigImage5" class="control-label"></label>
+                <input asp-for="GigImage5" class="form-control" />
+                <span asp-validation-for="GigImage5" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GigRating" class="control-label"></label>
+                <input asp-for="GigRating" class="form-control" />
+                <span asp-validation-for="GigRating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GigRatingCount" class="control-label"></label>
+                <input asp-for="GigRatingCount" class="form-control" />
+                <span asp-validation-for="GigRatingCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GigPrice" class="control-label"></label>
+                <input asp-for="GigPrice" class="form-control" />
+                <span asp-validation-for="GigPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

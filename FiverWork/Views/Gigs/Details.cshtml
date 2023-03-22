@@ -1,0 +1,84 @@
+﻿@model FiverWork.Models.Gig
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Gig</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GigTitle)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GigTitle)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SellerName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SellerName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SellerImage)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SellerImage)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GigImage1)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GigImage1)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GigImage2)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GigImage2)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GigImage3)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GigImage3)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GigImage4)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GigImage4)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GigImage5)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GigImage5)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GigRating)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GigRating)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GigRatingCount)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GigRatingCount)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GigPrice)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GigPrice)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.GigId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

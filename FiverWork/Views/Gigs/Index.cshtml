@@ -1,0 +1,172 @@
+﻿@model List<FiverWork.Models.Gig>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Fiverr Gig Card</title>
+    <link href="~/css/style.css" rel="stylesheet" />
+</head>
+@*<div class="container">
+    <div class="card">
+        <!-- Add form to create new Gig -->
+        <form asp-controller="Gigs" asp-action="Create" method="post">
+            <div class="form-group">
+                <label asp-for="GigTitle"></label>
+                <input asp-for="GigTitle" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="GigPrice"></label>
+                <input asp-for="GigPrice" class="form-control" />
+            </div>
+            <!-- Add more form fields as needed -->
+            <button type="submit" class="btn btn-primary">Create</button>
+        </form>
+    </div>
+</div>*@
+<body>
+    @foreach (var gig in Model)
+    {
+        <div class="container">
+            <div class="row">
+                <div class="card">
+                    <div class="slider">
+                        <span onclick="goNext()" class="arrow next"><i class="fa-solid fa-chevron-right"></i></span>
+                        <span onclick="goPrv()" class="arrow prev"><i class="fa-solid fa-chevron-left"></i></span>
+                        <div class="slide"><img src="@gig.GigImage1" alt=""></div>
+                        <div class="slide"><img src="@gig.GigImage2" alt=""></div>
+                        <div class="slide"><img src="@gig.GigImage3" alt=""></div>
+                        <div class="slide"><img src="@gig.GigImage4" alt=""></div>
+                        <div class="slide"><img src="@gig.GigImage5" alt=""></div>
+                    </div>
+
+                    <!-- User Details -->
+                    <div class="user_details">
+                        <img src="@gig.SellerImage" alt="">
+                        <h4>@gig.SellerName <br><small>Top Rated Saller</small></h4>
+                    </div>
+
+                    <!-- gig Title -->
+                    <div class="title">
+                        <h3>@gig.GigTitle</h3>
+                    </div>
+                    <!-- Gig rating -->
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i> @gig.GigRating <span>(@gig.GigRatingCount)</span>
+                    </div>
+
+                    <!-- Gig Footer -->
+                    <div class="card_footer">
+                        <div class="icon-list">
+                            <i class="fa-solid fa-bars"></i>
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                        <div class="price">
+                            Starting at <span>US$@gig.GigPrice</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            }
+            <script src="codejs.js"></script>
+    </body>
+    </html>
+        @*<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.GigTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SellerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SellerImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GigImage1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GigImage2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GigImage3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GigImage4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GigImage5)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GigRating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GigRatingCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GigPrice)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GigTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SellerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SellerImage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GigImage1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GigImage2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GigImage3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GigImage4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GigImage5)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GigRating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GigRatingCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GigPrice)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.GigId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.GigId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.GigId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>*@
